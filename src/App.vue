@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="app">
+    <Tile v-for="tile in tiles" :name="tile" :key="tile" />
+  </div>
 </template>
-
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Tile from "./components/tile/Tile";
 
 export default {
   name: "App",
+
   components: {
-    HelloWorld,
+    Tile,
+  },
+
+  data() {
+    return {
+      tiles: ["Xoxo", "QQ", "Lol"],
+    };
   },
 };
 </script>
+<style lang="scss">
+@import "./assets/scss/theme.scss";
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app {
+  display: flex;
 }
 </style>
